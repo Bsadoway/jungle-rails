@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :users, only: [:show, :create, :new]
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   resource :cart, only: [:show] do
     put    :add_item
     delete :remove_item
