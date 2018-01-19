@@ -9,8 +9,10 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-
+    @products = Product.joins(:line_items).where("order_id =?", params[:id])
+    
     if order.valid?
+      UserMailer.welcome_email(order, @products).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else

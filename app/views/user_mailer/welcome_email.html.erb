@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for your jungle.com order</h1>
+    <p>
+      You have successfully made order: #<%= @order.id %>
+    </p>
+    <%= p @products %>
+    <div>
+    <% @products.each do |product| %>
+      <p><%= product.name %></p>
+      <br>
+      <p><%= product.description %></p>
+      <p>$<%= product.price %></p>
+    <% end %>
+    </div>
+  </body>
+</html>
