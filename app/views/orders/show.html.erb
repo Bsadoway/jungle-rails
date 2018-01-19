@@ -21,6 +21,7 @@
         </tr>
       </thead>
       <tbody>
+        <% @order_total = 0 %>
         <tr>
           <% @products.each_with_index do |product, index| %>
             <td>
@@ -38,7 +39,8 @@
               $<%= product.price %>
             </td>
             <td>
-              $<%= product.price * @items[index].quantity %>
+              <% @order_total += product.price * @items[index].quantity %>
+              $<%=  product.price * @items[index].quantity %>
             </td>
           </tr>
           <% end %>
@@ -49,7 +51,7 @@
             ORDER TOTAL:
           </th>
           <th>
-            <p>$<%= '%.2f' % (@order.total_cents.to_i/100.0) %></p>
+            <p>$<%= @order_total %></p>
           </th>
         </tr>
       </tfoot>
