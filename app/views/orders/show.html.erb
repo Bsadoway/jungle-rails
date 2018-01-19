@@ -7,7 +7,52 @@
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+  <% @products.each_with_index do |product, index| %>
+  <tr>
+    <td>
+      <%= image_tag product.image.tiny %>
+    </td>
+    <td>
+      <h4><%= product.name %></h4>
+      <br>
+      <p><%= product.description %></p>
+    </td>
+    <td>
+    <%= @items[index].quantity %>
+    </td>
+    <td>
+      <%= product.price %>
+    </td>
+    <td>
+      <%= product.price * @items[index].quantity %>
+    </td>
+  </tr>
+  </tbody>
+  <% end %>
+  <tfoot>
+    <tr>
+      <p><%= @order.email  %></p>
+      <th colspan="4">
+        TOTAL:
+      </th>
 
+      <th>
+        <p><%= @order.total_cents %></p>
+      </th>
+    </tr>
+  </tfoot>
+</table>
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
 </section>
