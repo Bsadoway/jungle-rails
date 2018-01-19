@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   skip_before_action :http_basic_authenticate
-  
+
   def show
     @order = Order.find(params[:id])
     @products = Product.joins(:line_items).where("order_id =?", params[:id])
@@ -10,10 +10,9 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-    @products = Product.joins(:line_items).where("order_id =?", params[:id])
 
     if order.valid?
-      UserMailer.welcome_email(order, @products).deliver_now
+      UserMailer.welcome_email(order).deliver_now
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else

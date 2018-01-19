@@ -8,14 +8,16 @@
     <p>
       You have successfully made order: #<%= @order.id %>
     </p>
-    <%= p @products %>
-    <div>
-    <% @products.each do |product| %>
+    <p> Order Details: </p>
+    <% @order_total = 0 %>
+    <% @products.each_with_index do |product, index| %>
       <p><%= product.name %></p>
       <br>
+      <% @order_total += product.price * @items[index].quantity %>
       <p><%= product.description %></p>
       <p>$<%= product.price %></p>
+      <p>Quantity: <%= @items[index].quantity %></p>
     <% end %>
-    </div>
+    <p>Order Total: $<%= @order_total %></p>
   </body>
 </html>
