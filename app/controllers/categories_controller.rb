@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_action :http_basic_authenticate
 
   def show
     @category = Category.find(params[:id])

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-
+  skip_before_action :http_basic_authenticate
+  
   def show
     @order = Order.find(params[:id])
     @products = Product.joins(:line_items).where("order_id =?", params[:id])

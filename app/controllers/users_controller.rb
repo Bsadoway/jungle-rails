@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :http_basic_authenticate
+
   def new
   end
 

@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
 
+  skip_before_action :http_basic_authenticate
+  
   def show
   end
 
