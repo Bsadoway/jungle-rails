@@ -132,8 +132,16 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+User.create(id: 1, first_name: "Joe", last_name: "Smith", email: "js@js.com", password: "js")
+User.create(id: 2, first_name: "Darth", last_name: "Vader", email: "dv@dv.com", password: "dv")
+User.create(id: 3, first_name: "Lady", last_name: "MacBeth", email: "lm@lm.com", password: "lm")
+
 ## COMMENTS
 
-
+Review.create(id: 1, product_id: 1, user_id: 1, description: "This is the worst", rating: 2)
+Review.create(id: 2, product_id: 1, user_id: 2, description: "This is the Greatest", rating: 5)
+Review.create(id: 3, product_id: 1, user_id: 3, description: "Meh", rating: 3)
 
 puts "DONE!"
