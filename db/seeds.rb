@@ -143,5 +143,7 @@ User.create(id: 3, first_name: "Lady", last_name: "MacBeth", email: "lm@lm.com",
 Review.create(id: 1, product_id: 1, user_id: 1, description: "This is the worst", rating: 2)
 Review.create(id: 2, product_id: 1, user_id: 2, description: "This is the Greatest", rating: 5)
 Review.create(id: 3, product_id: 1, user_id: 3, description: "Meh", rating: 3)
+Review.create(id: 4, product_id: 2, user_id: 3, description: "Changed my life", rating: 5)
+Review.create(id: 5, product_id: 3, user_id: 3, description: "Garbage", rating: 0)
 
 puts "DONE!"
