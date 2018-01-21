@@ -46,10 +46,15 @@
         <% end %>
         <% @users.each do |user| %>
           <% if user.id == review.user_id %>
-          <p>-<%= user.first_name %>
-          <%= user.last_name %></p>
+          <p>
+            -<%= user.first_name %>
+            <%= user.last_name %>
+            </p>
           <% end%>
         <% end %>
+        <% if current_user && current_user.id == review.user_id%>
+          <%= link_to fa_icon('trash'), product_review_path(params[:id], review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end%>
       <% end%>
     </div>
 
