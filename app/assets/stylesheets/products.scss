@@ -71,17 +71,20 @@ main section.products-index {
     }
   }
 }
-.glyphicon-star{
+
+.glyphicon-star {
   color: #FFD700;
 }
+
 main section.products-show {
   .product-detail {
     img.main-img {
       max-width: 100%;
     }
   }
+
   .review-form {
-    border: #000 .5px solid;
+    border: #000 0.5px solid;
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;

@@ -9,7 +9,6 @@
   <article class="product-detail">
 
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -21,7 +20,11 @@
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
           <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
+          <% if @product.quantity == 0 %>
+            <dd>SOLD OUT</dd>
+          <% else %>
+            <dd><%= @product.quantity %></dd>
+          <% end %>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
@@ -64,6 +67,7 @@
               <footer class="blockquote-footer">
                 <%= user.first_name %>
                 <%= user.last_name %>
+                <%= review.created_at.strftime("%m/%d/%Y") %>
                 <% if current_user && current_user.id == review.user_id%>
                   <%= link_to fa_icon('trash-o'), product_review_path(params[:id], review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
                 <% end%>
