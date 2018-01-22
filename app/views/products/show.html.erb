@@ -27,8 +27,8 @@
         </dl>
       </div>
     </div>
+
     <% if session[:user_id] %>
-      <button class="btn btn-primary" id="review-btn">Write Review</button>
       <div class="review-form">
         <h3>Write a review:</h3>
         <%= form_for [@product, Review.new] do |f| %>
