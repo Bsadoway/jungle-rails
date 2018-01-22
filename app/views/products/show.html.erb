@@ -27,7 +27,6 @@
         </dl>
       </div>
     </div>
-
     <% if session[:user_id] %>
       <div class="review-form">
         <h3>Write a review:</h3>
@@ -44,35 +43,36 @@
         <%= f.submit 'Create Review', class: 'btn btn-primary' %>
       <% end %>
     <% end %>
-  </div>
+    </div>
   <div>
     <% if @reviews.count > 0 %>
-      <h3>Reviews:
-      </h3>
-      <div>
-        <% @reviews.each do |review| %>
-          <blockquote class="blockquote mb-0">
-            "<%= review.description %>"
-            <% review.rating.to_i.times do  %>
-              <span class="glyphicon glyphicon-star"></span>
-            <% end %>
-            <% review.blank_stars.times do  %>
-              <span class="glyphicon glyphicon-star-empty"></span>
-            <% end %>
-            <% @users.each do |user| %>
-              <% if user.id == review.user_id %>
-                <footer class="blockquote-footer">
-                  <%= user.first_name %>
-                  <%= user.last_name %>
-                  <% if current_user && current_user.id == review.user_id%>
-                    <%= link_to fa_icon('trash-o'), product_review_path(params[:id], review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-                  <% end%>
-                </footer>
-              <% end%>
-            <% end %>
-          </blockquote>
-        <% end%>
-      </div>
+    <h3>Reviews:
+    </h3>
+    <div>
+
+      <% @reviews.each do |review| %>
+        <blockquote class="blockquote mb-0">
+          "<%= review.description %>"
+          <% review.rating.to_i.times do  %>
+            <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% review.blank_stars.times do  %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+          <% @users.each do |user| %>
+            <% if user.id == review.user_id %>
+              <footer class="blockquote-footer">
+                <%= user.first_name %>
+                <%= user.last_name %>
+                <% if current_user && current_user.id == review.user_id%>
+                  <%= link_to fa_icon('trash-o'), product_review_path(params[:id], review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                <% end%>
+              </footer>
+            <% end%>
+          <% end %>
+        </blockquote>
+      <% end%>
+    </div>
     <% else %>
       <h4>No reviews for this item yet...</h4>
     <% end %>

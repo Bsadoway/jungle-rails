@@ -24,9 +24,11 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:product_id, :description, :rating)
     end
+
     def authorize
       unless User.find_by_id(session[:user_id])
-      flash[:notice] = "Please log in"
+        flash[:notice] = "Please log in"
+      end
     end
 
 end
