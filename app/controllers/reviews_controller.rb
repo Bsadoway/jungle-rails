@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   skip_before_action :http_basic_authenticate
-  before_action :user_signed_in?
 
   def create
     @review = Review.new(review_params)

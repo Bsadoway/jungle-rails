@@ -1,26 +1,22 @@
-main section.products-index,
-main section.categories-show {
-
+main section.categories-show,
+main section.products-index {
   .products {
-    display:         flex;
-    flex-direction:  row;
-    flex-wrap:       wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 
     .product {
       // flex:      1;
       max-width: 260px;
       // so that footer within can be positioned absolutely
-      position:  relative;
-
-      border:        1px solid #ccc;
+      position: relative;
+      border: 1px solid #ccc;
       border-radius: 5px;
-      padding:       15px;
-      padding-bottom: 80px;
-      margin-top:    20px;
+      padding: 15px 15px 80px;
+      margin-top: 20px;
       // margin:        10px;
-
-      .sold-out{
+      .sold-out {
         background-color: tomato;
         color: #fff;
         position: absolute;
@@ -44,7 +40,7 @@ main section.categories-show {
       footer {
         position: absolute;
         bottom: 0;
-        left:   0;
+        left: 0;
         background-color: #EEE;
         padding: 15px;
         border-bottom-left-radius: 5px;
@@ -66,23 +62,28 @@ main section.categories-show {
       }
 
       &:hover {
-
         border-color: #999;
 
         footer {
           opacity: 1.0;
         }
       }
-
     }
   }
 }
-
+.glyphicon-star{
+  color: #FFD700;
+}
 main section.products-show {
-
   .product-detail {
     img.main-img {
       max-width: 100%;
     }
+  }
+  .review-form {
+    border: #000 .5px solid;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
   }
 }
