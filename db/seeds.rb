@@ -134,9 +134,9 @@ cat3.products.create!({
 
 ## USERS
 
-User.create(first_name: "Joe", last_name: "Smith", email: "js@js.com", password: "js")
-User.create(first_name: "Darth", last_name: "Vader", email: "dv@dv.com", password: "dv")
-User.create(first_name: "Lady", last_name: "MacBeth", email: "lm@lm.com", password: "lm")
+User.create(first_name: "Joe", last_name: "Smith", email: "js@js.com", password: "hellojoe", password_confirmation: "hellojoe")
+User.create(first_name: "Darth", last_name: "Vader", email: "dv@dv.com", password: "hellodarth", password_confirmation: "hellodarth")
+User.create(first_name: "Lady", last_name: "MacBeth", email: "lm@lm.com", password: "hellolady", password_confirmation: "hellolady")
 
 ## COMMENTS
 
